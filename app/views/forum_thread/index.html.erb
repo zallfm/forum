@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <% @threads.each do |t| %>
+    <div class="thread">
+      <h4><%= link_to t.title.titleize, forum_thread_path(t) %></h4>
+
+      <div class="meta">
+        <%= I18n.l(t.created_at.to_date) %> oleh <%= t.user.name %>
+      </div>
+
+      <div class="content">
+        <%= t.content %>
+      </div>
+      <div class="count">
+        <%= t.forum_posts.count %> Obrolan
+      </div>
+      <div style="clear: both">
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
